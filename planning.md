@@ -18,19 +18,19 @@
 <!-- List your specific sources: URLs, subreddit names, forum threads, or file descriptions.
      Aim for at least 10 sources that together cover different subtopics or perspectives within your domain. -->
 
-| # | Source | Description | URL or location |
-|---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
-
+| Source | Description | URL or location |
+|---|---|---|
+| Playbill — Broadway Shows | A current directory of Broadway productions, including show titles, theatres, and closing dates. Useful for answering questions about what is currently playing on Broadway. | `https://playbill.com/shows/broadway` |
+| Playbill — Off-Broadway Shows | A directory of current and upcoming Off-Broadway productions, including theatres, preview dates, and closing dates. Useful for recommending shows outside the main Broadway theatre district. | `https://playbill.com/shows/offbroadway` |
+| Playbill — Schedule of Upcoming and Announced Broadway Shows | A regularly updated guide to upcoming Broadway productions, including previews, opening dates, theatres, cast members, and short plot summaries. | `https://playbill.com/article/schedule-of-upcoming-and-announced-broadway-shows` |
+| New York Theatre Guide — Best Broadway Plays in New York | A curated guide to notable Broadway plays currently running, with descriptions, genres, notable cast members, and reasons to see each show. | `https://www.newyorktheatreguide.com/theatre-news/news/top-broadway-plays` |
+| New York Theatre Guide — Best-Reviewed Broadway Shows in New York | A curated list of critically acclaimed Broadway and Off-Broadway shows, including review excerpts and descriptions of each production. | `https://www.newyorktheatreguide.com/theatre-news/news/best-reviewed-broadway-shows-in-new-york` |
+| The New York Times — 9 Shows Our Theater Critics Are Talking About | A critic-curated guide to notable productions, including review summaries and recommendations for Broadway and Off-Broadway shows. | `https://www.nytimes.com/2026/04/17/theater/salesman-giant-cats-becky-shaw-proof-broadway.html` |
+| Deadline — Broadway’s Spring 2026 Season: All of Deadline’s Reviews | A collection of Deadline’s reviews for Spring 2026 Broadway productions, including opening dates, venues, casts, running times, and critical takeaways. | `https://deadline.com/2026/04/broadway-spring-2026-reviews-1236859028/` |
+| Matthew Huff — All 30 of This Season’s New Broadway Shows, Ranked | A ranked list of the 2025–2026 season’s Tony Award-eligible Broadway shows based on the author’s firsthand viewing experience. Useful for comparison and recommendation questions. | `https://huffmatt.substack.com/p/2026-broadway-shows-ranked-tony-awards` |
+| Travel + Leisure — I’ve Seen 36 Broadway Shows in the Last Year: Here Are My Top Summer Picks | A recommendation article highlighting ten Broadway shows for summer visitors, with descriptions and explanations of why each show stands out. | `https://www.travelandleisure.com/best-broadway-shows-to-see-this-summer-11955436` |
+| Broadway.com — The Best Shows Coming to Broadway in 2026 | A guide to anticipated Broadway productions arriving in 2026, including descriptions and expected opening information. | `https://www.broadway.com/buzz/206109/the-best-shows-coming-to-broadway-in-2026/` |
+  
 ---
 
 ## Chunking Strategy
