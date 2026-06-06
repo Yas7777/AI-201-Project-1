@@ -81,11 +81,11 @@ Using less than 600 may be too small for review text. There is alot of context r
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | Which Broadway show is a comedic reimagining of *Titanic* featuring Céline Dion songs? | *Titaníque*. The response should mention that it is a campy comedy featuring Céline Dion’s music and pop-culture jokes. |
+| 2 | When does *Giant* close, and who stars in it? | *Giant* closes on June 28, 2026, and stars John Lithgow. |
+| 3 | Where is *The Play That Goes Wrong* currently playing? | *The Play That Goes Wrong* is playing Off-Broadway at New World Stages Stage 4. |
+| 4 | What is *Every Brilliant Thing* about? | It is a solo play centered on a list of things that make life worth living. The response should also mention that audience participation is part of the show. |
+| 5 | What Broadway show would be a good choice for a family that enjoys Harry Potter? | *Harry Potter and the Cursed Child*. The response should mention that it continues the Harry Potter story on stage and is known for its theatrical effects. |
 
 ---
 
@@ -109,7 +109,50 @@ Using less than 600 may be too small for review text. There is alot of context r
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
 
----
+```text
+┌──────────────────────────────┐
+│ 1. DOCUMENT INGESTION        │
+│                              │
+│ Website URLS                 │
+│ Load Broadway articles       │
+│ and reviews                  │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│ 2. CHUNKING                  │
+│ Paragraph-based chunks       │
+│ Target max: 800 characters   │
+│ Overlap: 150 characters      │
+│                              │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│ 3. EMBEDDING + VECTOR STORE  │
+│                              │
+│ sentence-transformers        │
+│ all-MiniLM-L6-v2             │
+│ Store embeddings in ChromaDB │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│ 4. RETRIEVAL                 │
+│                              │
+│ ChromaDB similarity search   │
+│ Retrieve top-k = 5 chunks    │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│ 5. GENERATION                │
+│                              │
+│ OpenAI API                   │
+│ Generate an answer using     │
+│ retrieved context            │
+└──────────────────────────────┘
+```
 
 ## AI Tool Plan
 
@@ -124,6 +167,18 @@ Using less than 600 may be too small for review text. There is alot of context r
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
+
+     - Which AI tool you plan to use (Claude, Copilot, ChatGPT, etc.)
+     I plan to use Github Copilot and ChatGPT
+
+     - What you'll give it as input (which sections of this planning.md, which requirements)
+     I plan to provide the Source, Architecture as a starting point
+
+     - What you expect it to produce
+     I am expecting it to produce a decent clean up strategy given that my links are fairly straightforward
+
+     - How you'll verify the output matches your spec
+     I plan to check the chunking.json file it will provide to see the quality of the chunks it will produce
 
 **Milestone 4 — Embedding and retrieval:**
 
