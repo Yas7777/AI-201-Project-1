@@ -10,7 +10,7 @@
 ## Domain
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
-
+I chose Broadway as my domain. It is not easy to find the best shows to watch in NYC, as there are a lot and a lot of them are very limited runs. As a local its important to prioritse time for the limited runs, while making sure that long standing shows dont have cast changes etc along with checking reviews. It is a lot of back and forth with multiple substacks and google searches to make this choice on which show to watch.
 ---
 
 ## Documents
@@ -40,11 +40,19 @@
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-**Chunk size:**
+**Chunk size:** 600–800
 
-**Overlap:**
+I will try and use paragraph-based chunking with approximately 600–800 characters
+
+Using less than 600 may be too small for review text. There is alot of context required in this domain and to make connections between opinions (reviews) and facts (date, show title etc). With a smaller chunk size, these details may be split.
+
+
+**Overlap:** 150
+
+150 feels like a good size for oerlap. This should should preserve complete opinions while keeping retrieved chunks focused enough for recommendations and comparisons.
 
 **Reasoning:**
+
 
 ---
 
