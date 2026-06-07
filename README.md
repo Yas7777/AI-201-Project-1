@@ -23,18 +23,19 @@ I chose Broadway as my domain. It is not easy to find the best shows to watch in
      Be specific: include URLs, subreddit names, forum thread titles, or file names.
      Aim for variety — sources that together cover different subtopics or perspectives. -->
 
-| # | Source | Type | URL or file path |
-|---|--------|------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| #  | Source                                                                                        | Type    | URL or file path                                                                                 |
+| -- | --------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| 1  | Playbill — Broadway Shows                                                                     | Website | `https://playbill.com/shows/broadway`                                                            |
+| 2  | Playbill — Off-Broadway Shows                                                                 | Website | `https://playbill.com/shows/offbroadway`                                                         |
+| 3  | Playbill — Schedule of Upcoming and Announced Broadway Shows                                  | Website | `https://playbill.com/article/schedule-of-upcoming-and-announced-broadway-shows`                 |
+| 4  | New York Theatre Guide — Best Broadway Plays in New York                                      | Website | `https://www.newyorktheatreguide.com/theatre-news/news/top-broadway-plays`                       |
+| 5  | New York Theatre Guide — Best-Reviewed Broadway Shows in New York                             | Website | `https://www.newyorktheatreguide.com/theatre-news/news/best-reviewed-broadway-shows-in-new-york` |
+| 6  | TodayTix — NYT Critics Picks                                                                  | Website | `https://www.todaytix.com/nyc/collections/nyt-critics-picks/`                                    |
+| 7  | Deadline — Broadway’s Spring 2026 Season: All of Deadline’s Reviews                           | Website | `https://deadline.com/2026/04/broadway-spring-2026-reviews-1236859028/`                          |
+| 8  | Matthew Huff — All 30 of This Season’s New Broadway Shows, Ranked                             | Website | `https://huffmatt.substack.com/p/2026-broadway-shows-ranked-tony-awards`                         |
+| 9  | Travel + Leisure — I’ve Seen 36 Broadway Shows in the Last Year: Here Are My Top Summer Picks | Website | `https://www.travelandleisure.com/best-broadway-shows-to-see-this-summer-11955436`               |
+| 10 | Broadway.com — The Best Shows Coming to Broadway in 2026                                      | Website | `https://www.broadway.com/buzz/206109/the-best-shows-coming-to-broadway-in-2026/`                |
+
 
 ---
 
