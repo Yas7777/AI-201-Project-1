@@ -31,7 +31,7 @@ MIN_LISTING_CHUNK_LENGTH = 20
 # -------------------------------------------------------------------
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 COLLECTION_NAME = "broadway_documents"
-TOP_K = 5
+TOP_K = 7
 
 # -------------------------------------------------------------------
 # Web request settings
