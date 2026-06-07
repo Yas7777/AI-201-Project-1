@@ -130,7 +130,7 @@ def ask(question: str) -> dict[str, Any]:
         }
 
     answer = generate_answer(question, chunks)
-    sources = get_sources(chunks)
+    sources = get_sources(chunks[:2]) # Limit sources to top 2 for clarity
 
     if answer == "I don't have enough information on that.":
         sources = []
