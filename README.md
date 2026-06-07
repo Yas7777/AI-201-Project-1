@@ -89,7 +89,35 @@ Given the small sample size / review dataset, all-MiniLM-L6-v2 is a practical ch
 
 **System prompt grounding instruction:**
 
+The LLM is only supposed to answer from the retrieved Broadway documents:
+This is the prompt
+"You are a grounded Broadway RAG assistant.
+
+You must answer using ONLY the provided retrieved document context.
+
+Rules:
+- Do not use outside knowledge.
+- Do not guess.
+- Do not make assumptions.
+- If the context does not contain enough information to answer the question, say exactly:
+  "I don't have enough information on that."
+- Keep the answer concise and directly tied to the retrieved info"
+
+**Structural Choices**
+For each question, the retriever returns the top 7 relevant chunks from ChromaDB. Each chunk includes its document name, source URL, and text:
+[Chunk 1]
+Document: ...
+Source URL: ...
+Text: ...
+This structure helps the model distinguish between separate retrieved excerpts and keeps the answer tied to the available evidence. The model temperature is set to 0 to reduce unnecessary variation and discourage unsupported answers.
+
+It does not currently use a similarity-score threshold to remove low-relevance chunks. Instead, it retrieves the top 7 chunks for each query. If no chunks are returned, or if the retrieved context does not contain enough information, the system returns:
+"I don't have enough information on that."
+
 **How source attribution is surfaced in the response:**
+The system returns the generated answer together with a list of sources. Each source includes the document name and its original URL. Duplicate sources are removed so the same article is not displayed multiple times.
+For clarity, the interface displays (upto) two sources from the highest-ranked retrieved chunks:
+Document Name — Source URL
 
 ---
 
