@@ -135,6 +135,10 @@ def ask(question: str) -> dict[str, Any]:
     if answer == "I don't have enough information on that.":
         sources = []
 
+    return {
+        "answer": answer,
+        "sources": sources,
+    }
 
 if __name__ == "__main__":
     test_questions = [
