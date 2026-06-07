@@ -72,10 +72,10 @@ These choices I have made were estimates based on the sources. Recursive-based c
      Consider: context length limits, multilingual support, accuracy on domain-specific text,
      latency, and local vs. API-hosted. -->
 
-**Model used:**
+**Model used:** all-MiniLM-L6-v2 
 
 **Production tradeoff reflection:**
-
+Given the small sample size / review dataset, all-MiniLM-L6-v2 is a practical choice because it can be run locally. For a production system with more documents, I would compare embedding models based on its ability to perform well with a large sample size, its retrieval accuracy etc. I would also test different top-k values and chunk sizes using sample questions to get the most accurate recommendations.
 ---
 
 ## Grounded Generation
