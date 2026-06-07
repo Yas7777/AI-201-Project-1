@@ -132,10 +132,8 @@ def ask(question: str) -> dict[str, Any]:
     answer = generate_answer(question, chunks)
     sources = get_sources(chunks)
 
-    return {
-        "answer": answer,
-        "sources": sources,
-    }
+    if answer == "I don't have enough information on that.":
+        sources = []
 
 
 if __name__ == "__main__":
