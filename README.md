@@ -48,13 +48,19 @@ I chose Broadway as my domain. It is not easy to find the best shows to watch in
      - Any preprocessing you did before chunking (e.g., stripping HTML, removing headers)
      - What your final chunk count was across all documents -->
 
-**Chunk size:**
+**Chunk size:** 600-800
+I will use recursive-based chunking with approximately 600–800 characters. Using less than 600 may be too small for review text. There is alot of context required in this domain and required to make connections between opinions (reviews) and facts (date, show title etc). With a smaller chunk size, these important details may be split.
 
-**Overlap:**
+**Overlap:** 150
+150 feels like a good size for overlap. This should should preserve complete opinions while keeping retrieved chunks focused enough for recommendations and comparisons.
+
+**Preprocessing you did before chunking**
+Before chunking, I cleaned the webpage content to remove text such as navigation menus, cookie banners, headers, share buttons and other boilerplate text with regard to this project. I also removed unnecessary whitespace while preserving the content, such as show descriptions, theatre information, dates, reviews, rankings, and recommendations.
 
 **Why these choices fit your documents:**
+These choices I have made were estimates based on the sources. Recursive-based chunking works well because it attempts to keep related text together before splitting at smaller boundaries when necessary. The 600–800 character range provides enough context for comparisons and recommendations while keeping each chunk focused enough for retrieval.
 
-**Final chunk count:**
+**Final chunk count:** 224 chunks across 10 sources.
 
 ---
 
