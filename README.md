@@ -14,6 +14,7 @@
      Example: "Student reviews of CS professors at [university] — useful because official
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
 
+I chose Broadway as my domain. It is not easy to find the best shows to watch in NYC, as there are a lot of shows and a lot of them are very limited runs. As a local its important to prioritse time for the limited runs, while making sure that long standing shows dont have cast changes etc along with checking reviews. It is a lot of back and forth with multiple substacks and google searches to make this choice on which show to watch.
 ---
 
 ## Document Sources
