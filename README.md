@@ -49,13 +49,14 @@ I chose Broadway as my domain. It is not easy to find the best shows to watch in
      - Any preprocessing you did before chunking (e.g., stripping HTML, removing headers)
      - What your final chunk count was across all documents -->
 
-**Chunk size:** 600-800
+**Chunk size:** 
+600-800
 I will use recursive-based chunking with approximately 600–800 characters. Using less than 600 may be too small for review text. There is alot of context required in this domain and required to make connections between opinions (reviews) and facts (date, show title etc). With a smaller chunk size, these important details may be split.
 
-**Overlap:** 150
+**Overlap:** 
 150 feels like a good size for overlap. This should should preserve complete opinions while keeping retrieved chunks focused enough for recommendations and comparisons.
 
-**Preprocessing you did before chunking**
+**Preprocessing you did before chunking:**
 Before chunking, I cleaned the webpage content to remove text such as navigation menus, cookie banners, headers, share buttons and other boilerplate text with regard to this project. I also removed unnecessary whitespace while preserving the content, such as show descriptions, theatre information, dates, reviews, rankings, and recommendations.
 
 **Why these choices fit your documents:**
@@ -77,6 +78,7 @@ These choices I have made were estimates based on the sources. Recursive-based c
 
 **Production tradeoff reflection:**
 Given the small sample size / review dataset, all-MiniLM-L6-v2 is a practical choice because it can be run locally. For a production system with more documents, I would compare embedding models based on its ability to perform well with a large sample size, its retrieval accuracy etc. I would also test different top-k values and chunk sizes using sample questions to get the most accurate recommendations.
+
 ---
 
 ## Grounded Generation
@@ -121,9 +123,7 @@ It does not currently use a similarity-score threshold to remove low-relevance c
 **How source attribution is surfaced in the response:**
 The system returns the generated answer together with a list of sources. Each source includes the document name and its original URL. Duplicate sources are removed so the same article is not displayed multiple times.
 
-For clarity, the interface displays (up to) two sources from the highest-ranked retrieved chunks:
-
-Document Name — Source URL
+For clarity, the interface displays (up to) two sources from the highest-ranked retrieved chunks.
 
 ---
 
@@ -162,8 +162,6 @@ Document Name — Source URL
 
      "The embedding model treated the professor's nickname as out-of-vocabulary and returned
      results from an unrelated review" is an explanation. -->
-
-## Failure Case Analysis
 
 **Question that failed:**
 What is Operation Mincemeat about?
