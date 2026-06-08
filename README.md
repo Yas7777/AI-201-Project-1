@@ -15,6 +15,7 @@
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
 
 I chose Broadway as my domain. It is not easy to find the best shows to watch in NYC, as there are a lot of shows and a lot of them are very limited runs. As a local its important to prioritse time for the limited runs, while making sure that long standing shows dont have cast changes etc along with checking reviews. It is a lot of back and forth with multiple substacks and google searches to make this choice on which show to watch.
+
 ---
 
 ## Document Sources
@@ -89,9 +90,10 @@ Given the small sample size / review dataset, all-MiniLM-L6-v2 is a practical ch
 
 **System prompt grounding instruction:**
 
-The LLM is only supposed to answer from the retrieved Broadway documents:
-This is the prompt
-"You are a grounded Broadway RAG assistant.
+The LLM is only supposed to answer from the retrieved Broadway documents. This is the prompt:
+
+```text
+You are a grounded Broadway RAG assistant.
 
 You must answer using ONLY the provided retrieved document context.
 
@@ -101,7 +103,8 @@ Rules:
 - Do not make assumptions.
 - If the context does not contain enough information to answer the question, say exactly:
   "I don't have enough information on that."
-- Keep the answer concise and directly tied to the retrieved info"
+- Keep the answer concise and directly tied to the retrieved info.
+```
 
 **Structural Choices**
 For each question, the retriever returns the top 7 relevant chunks from ChromaDB. Each chunk includes its document name, source URL, and text:
@@ -112,11 +115,14 @@ Text: ...
 This structure helps the model distinguish between separate retrieved excerpts and keeps the answer tied to the available evidence. The model temperature is set to 0 to reduce unnecessary variation and discourage unsupported answers.
 
 It does not currently use a similarity-score threshold to remove low-relevance chunks. Instead, it retrieves the top 7 chunks for each query. If no chunks are returned, or if the retrieved context does not contain enough information, the system returns:
-"I don't have enough information on that."
+
+> "I don't have enough information on that."
 
 **How source attribution is surfaced in the response:**
 The system returns the generated answer together with a list of sources. Each source includes the document name and its original URL. Duplicate sources are removed so the same article is not displayed multiple times.
-For clarity, the interface displays (upto) two sources from the highest-ranked retrieved chunks:
+
+For clarity, the interface displays (up to) two sources from the highest-ranked retrieved chunks:
+
 Document Name — Source URL
 
 ---
@@ -183,6 +189,7 @@ The planning.md file helped me define the scope of the project before writing th
 
 **One way your implementation diverged from the spec, and why:**
 My initial spec described a general recursive chunking approach with chunks of approximately 600–800 characters. During implementation, I adjusted the cleaning significantly along with the chunking logic to better preserve paragraphs and keep related details together, especially when a show title was followed by its theatre, plot summary, or review. This was extremely important because splitting those details across separate chunks could make the retrieval less accurate. I also refined the source list during implementation by replacing a paywalled source with a better source that could be ingested better. I also continously reiterated the clean up code, as I checked against the chunk.json to see it correctly cleaned up with each reiteration. 
+
 ---
 
 ## AI Usage
