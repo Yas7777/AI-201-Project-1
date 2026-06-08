@@ -157,13 +157,19 @@ Document Name — Source URL
      "The embedding model treated the professor's nickname as out-of-vocabulary and returned
      results from an unrelated review" is an explanation. -->
 
+## Failure Case Analysis
+
 **Question that failed:**
+What is Operation Mincemeat about?
 
 **What the system returned:**
+“I don't have enough information on that.”
 
 **Root cause (tied to a specific pipeline stage):**
+The failure occurred during the **retrieval stage**. Operation Mincemeat is a Broadway musical, so the question is within the domain scope of the system. However, the top retrieved chunks did not provide enough information about the show's plot for the model to generate an answer. The relevant description may have been removed during cleaning, or may not have ranked highly enough during similarity search. Because the generation prompt instructs the model to answer only from the retrieved context, the model did not invent an answer.
 
 **What you would change to fix it:**
+I would investigate the cleaned documents and generated chunks to confirm that a plot summary for Operation Mincemeat exists. If the information is not there, I would add or update a source document that includes a clear description of the show. If the information is present but was not retrieved, I would test larger top_k values, and review whether the relevant chunk appears. I would also check whether the show's title and plot summary were split across separate chunks. If so, I would adjust the chunking logic or overlap size so that the title and description remain together.
 
 ---
 
@@ -173,9 +179,10 @@ Document Name — Source URL
      Answer both questions with at least 2–3 sentences each. -->
 
 **One way the spec helped you during implementation:**
+The planning.md file helped me define the scope of the project before writing the ingestion and retrieval code. It identified the sources, the type of questions the system should answer, and the chunking approach. This made it easier to decide what content to preserve during cleaning, such as show titles, theatres, etc. It also made me think of potential issues especially when it comes to cleaning up. 
 
 **One way your implementation diverged from the spec, and why:**
-
+My initial spec described a general recursive chunking approach with chunks of approximately 600–800 characters. During implementation, I adjusted the cleaning significantly along with the chunking logic to better preserve paragraphs and keep related details together, especially when a show title was followed by its theatre, plot summary, or review. This was extremely important because splitting those details across separate chunks could make the retrieval less accurate. I also refined the source list during implementation by replacing a paywalled source with a better source that could be ingested better. I also continously reiterated the clean up code, as I checked against the chunk.json to see it correctly cleaned up with each reiteration. 
 ---
 
 ## AI Usage
@@ -192,11 +199,17 @@ Document Name — Source URL
 **Instance 1**
 
 - *What I gave the AI:*
+I provided my Broadway source list and the planning.md requirements in terms of ingesting the data.
 - *What it produced:*
+The AI generated an initial version of ingest.py that loaded the source documents, cleaned the extracted text, created chunks, and saved metadata for each chunk.
 - *What I changed or overrode:*
+I continously refined the chunking and cleaning logic to better preserve the relevant Broadway content and remove navigation text and other boilerplate content. In addition, I ensured that each chunk stored the required metadata fields, including the source name, source_url, and chunk_position. I also overrode the chunk size from 300 to 600.
 
 **Instance 2**
 
 - *What I gave the AI:*
+I provided the retrieval requirements and the embedding model requirement (all-MiniLM-L6-v2)
 - *What it produced:*
+The AI generated and revised the retrieval logic in generator.py, including loading stored chunks, embedding them, querying ChromaDB, returning the top matching results, and using the retrieved context to generate an answer with source attribution
 - *What I changed or overrode:*
+I reviewed the returned chunks using test questions and adjusted the implementation so it answered only from the retrieved context rather than inventing details. I had also kept the retrieval value at a small top_k so the model received relevant context without being distracted by too many loosely related chunks. However, I increased it from 5 to 7 as I saw significant improvement in results. Better ingestion would have perhaps worked with the lower value of k. 
