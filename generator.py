@@ -143,7 +143,7 @@ def ask(question: str) -> dict[str, Any]:
 if __name__ == "__main__":
     test_questions = [
         "Which Broadway show is a comedic reimagining of Titanic featuring Céline Dion songs?",
-        "Where is The Play That Goes Wrong currently playing?",
+        "Where is Kenrex currently playing?",
         "What is the best pizza place in Manhattan?", # this is the off-domain question 
     ]
 
